@@ -14,17 +14,75 @@ class Aplikacja:
         self.button1.grid(row=0, column=2)
         
         
-        
-        self.selected_option = tk.StringVar()
-        self.selected_option.set("opcja 1")
-        
-
-    def show_selected(self):
-        self.selected_option.get()
-        
-        
 
 
+        
+        self.wyborrb = tk.StringVar()
+        self.wyborrb.set("brak")
+
+        self.labelrb = tk.Label(okno, text="wybierz opcje:")
+        self.labelrb.grid(row=1, column=0)
+
+        self.rb1 = tk.Radiobutton(okno, text="111", variable=self.wyborrb ,value="opcja1", command=self.wynik_radiobutton)
+        self.rb1.grid(row=2, column=0)
+
+        self.rb2 = tk.Radiobutton(okno, text="222", variable=self.wyborrb ,value="opcja2", command=self.wynik_radiobutton)
+        self.rb2.grid(row=3, column=0)
+
+        self.rb3 = tk.Radiobutton(okno, text="333", variable=self.wyborrb ,value="opcja3", command=self.wynik_radiobutton)
+        self.rb3.grid(row=4, column=0)
+
+        self.wynikrb = tk.Label(okno, text=f"twoj wybor: ")
+        self.wynikrb.grid(row=5, column=0)
+
+
+
+
+
+        self.wartoscsb = tk.StringVar(value="1")
+    
+
+        self.labelsb = tk.Label(okno, text="wybierz liczbe:")
+        self.labelsb.grid(row=6, column=0)
+
+        self.spinbox = tk.Spinbox(okno, from_=1, to=10, textvariable=self.wartoscsb, command=self.wartosc_spinbox)
+        self.spinbox.grid(row=6, column=1)
+
+        self.wyniksb = tk.Label(okno, text="aktualna wartosc: ")
+        self.wyniksb.grid(row=7, column=0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def wynik_radiobutton(self):
+        self.wynikrb.config(text="twoj wybor: " + self.wyborrb.get())  
+
+    def wartosc_spinbox(self):
+        self.wyniksb.config(text="aktualna wartosc: " + self.wartoscsb.get())
 
 
 
@@ -59,7 +117,7 @@ okno = tk.Tk()
 okno.title("Tytul okna")
 
 #ustawienie wymiarow aplikacji w pixelach, trzeba to dac w cudzyslowie bo inaczej nie zadziala
-okno.geometry("500x500")
+okno.geometry("1000x1000")
 
 #ustawienie tego czy mozna poszerzac okno czy nie, pierwszy argument to szerokosc, a drugi wysokosc(jak chcemy zeby sie rozszerzalo dajemy "True" jak nie to "False")
 okno.resizable(False, False)
