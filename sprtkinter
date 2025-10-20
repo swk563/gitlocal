@@ -1,0 +1,77 @@
+#import biblioteki "tkinter" i odwolywanie sie do niej skrotem 'tk', przez to ze aliasem jest tk, nie musimy importowac kazdej klasy/metody z tej biblioteki, tylko piszemy "tk.nazwa_klasy/metody"
+import tkinter as tk
+
+class Aplikacja:
+    def __init__(self, okno):
+        self.label1 = tk.Label(okno, text="label1")
+        self.label1.grid(row=0, column=0)
+        
+        self.tekst1 = tk.StringVar()
+        self.entry1 = tk.Entry(okno, textvariable=self.tekst1)
+        self.entry1.grid(row=0, column=1)
+        
+        self.button1 = tk.Button(okno, text="przycisk1")
+        self.button1.grid(row=0, column=2)
+        
+        
+        
+        self.selected_option = tk.StringVar()
+        self.selected_option.set("opcja 1")
+        
+
+    def show_selected(self):
+        self.selected_option.get()
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#przypisanie okna do jednej zmiennej, bo trzeba sie do tego okna odwolywac potem przy kazdym widgecie zeby python kumal ze ma wrzucic ten widget do okna
+okno = tk.Tk()
+
+#ustawienie tytulu aplikacji
+okno.title("Tytul okna")
+
+#ustawienie wymiarow aplikacji w pixelach, trzeba to dac w cudzyslowie bo inaczej nie zadziala
+okno.geometry("500x500")
+
+#ustawienie tego czy mozna poszerzac okno czy nie, pierwszy argument to szerokosc, a drugi wysokosc(jak chcemy zeby sie rozszerzalo dajemy "True" jak nie to "False")
+okno.resizable(False, False)
+
+#przypisanie obrazku do zmiennej, dawajcie png zawsze bo zadziala, nwm jak z innymi rozszerzeniami, fota musi byc w tym samym folderze, zeby python wykminil ze to ten konkretny obrazek
+icon = tk.PhotoImage(file="elektron.png")
+
+#ustawienie obrazku jako ikonke aplikacji, "True" jest po to, zeby python skumal ze ikonka jest aktywna i mial ja zmienic na obrazek przypisany do zmiennej "icon"
+okno.iconphoto(True, icon)
+
+#prosze mnie nie pytac po co to bo nie mam pojecia co i dlaczego, bez tego nic sie nie wyswietli jezeli robicie do obiektowo, po prostu macie to kurwa dac i chuj, dla ambitnych wpisac w google(robcie )
+app = Aplikacja(okno)
+
+#wyswietlenie okna
+okno.mainloop()
